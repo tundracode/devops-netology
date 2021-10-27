@@ -1,11 +1,12 @@
 # devops-netology
-## second line
 
-will be ignored:
-- Local .terraform directories
-- .tfstate files
-- Crash log files
-- Exclude all .tfvars files, which are likely to contain sentitive data, such as password, private keys, and other secrets. These should not be part of version control as they are data points which are potentially sensitive and subject to change depending on the environment.
-- Ignore override files as they are usually used to override resources locally and so are not checked in
-- Ignore CLI configuration files
+## Благодаря добавленному .gitignore будут проигнорированы:
+
+- локальные каталоги `.terraform` и файлы имеющие в своем названии, либо заканчивающиесь на `.tfstate`
+
+- файлы журнала сбоев crash.log и все файлы заканчивающиеся на `.tfvars`
+
+- файлы переопределения `override.tf, override.tf.json` и заканчивающиеся на `_override.tf` и `_override.tf.json`
+
+- файлы конфигураций CLI .`terraformrc` и `terraform.rc`
 
