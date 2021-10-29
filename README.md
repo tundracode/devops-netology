@@ -9,4 +9,3 @@
 - файлы переопределения `override.tf, override.tf.json` и заканчивающиеся на `_override.tf` и `_override.tf.json`
 
 - файлы конфигураций CLI .`terraformrc` и `terraform.rc`
-
