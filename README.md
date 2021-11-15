@@ -83,6 +83,10 @@ bash is /bin/bash
 
 14. Завершите работу виртуальной машины чтобы не расходовать ресурсы компьютера и/или батарею ноутбука.
 
+```buildoutcfg
+vagrant halt
+==> default: Attempting graceful shutdown of VM...
+```
  
  ---
 
