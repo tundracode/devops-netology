@@ -49,6 +49,8 @@ Nov 25 21:10:01 vagrant node_exporter[1594]: ts=2021-11-25T21:10:01.730Z caller=
 Nov 25 21:10:01 vagrant node_exporter[1594]: ts=2021-11-25T21:10:01.730Z caller=node_exporter.go:199 level=info msg="Listening on" address=:91>
 Nov 25 21:10:01 vagrant node_exporter[1594]: ts=2021-11-25T21:10:01.731Z caller=tls_config.go:195 level=info msg="TLS is disabled." http2=false
 ```
+Дополнительные опции в службу будут передаваться в данном случае через переменную `EnvironmentFile`. Этот метод позволяет добавить несколько переменных среды сервису через простой файл `/etc/default/node_exporter`. Символ `-` в начале значения `EnvironmentFile` позволяет systemd игнорировать ошибки, если файл не существует.
+Файл среды имеет список переменных в формате `имя = значение`. После запуска служба получает переменную окружения в `SITUATION=2319` в `/proc/1594/environ`
 
 ```buildoutcfg
 root@vagrant:~# cat /etc/default/node_exporter
@@ -57,6 +59,8 @@ SITUATION=2319
 root@vagrant:~# cat /proc/1594/environ
 LANG=en_US.UTF-8LANGUAGE=en_US:PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/binHOME=/home/node_exporterLOGNAME=node_exporterUSER=node_exporterINVOCATION_ID=562cd942069a45fda189f18819710e47JOURNAL_STREAM=9:35679SITUATION=2319
 ```
+Так же можно добавить переменные среды напрямую путем задания переменной `Environment="name=value"` в секции [Service] файла службы.
+
 
 2. Ознакомьтесь с опциями node_exporter и выводом `/metrics` по-умолчанию. Приведите несколько опций, которые вы бы выбрали для базового мониторинга хоста по CPU, памяти, диску и сети.
 
