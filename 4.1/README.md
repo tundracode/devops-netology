@@ -57,28 +57,29 @@ do
     for h in ${hosts[@]}
     do
       nc -zw1  $h 80
-      echo $(date +"%b %d %T") "- check" $h status=$? >>hosts.log
+      excode=$?
+      echo $(date +"%b %d %T") "- check -" $h "- exite code:" $excode >>hosts.log
     done
 done
 
 ```
 ```bash
 vagrant@master:/vagrant$ cat hosts.log
-Dec 15 19:49:53 - check 192.168.0.1 status=0
-Dec 15 19:49:53 - check 173.194.222.113 status=0
-Dec 15 19:49:54 - check 87.250.250.24 status=0
-Dec 15 19:49:54 - check 192.168.0.1 status=0
-Dec 15 19:49:54 - check 173.194.222.113 status=0
-Dec 15 19:49:55 - check 87.250.250.24 status=0
-Dec 15 19:49:55 - check 192.168.0.1 status=0
-Dec 15 19:49:55 - check 173.194.222.113 status=0
-Dec 15 19:49:56 - check 87.250.250.24 status=0
-Dec 15 19:49:56 - check 192.168.0.1 status=0
-Dec 15 19:49:56 - check 173.194.222.113 status=0
-Dec 15 19:49:57 - check 87.250.250.24 status=0
-Dec 15 19:49:57 - check 192.168.0.1 status=0
-Dec 15 19:49:57 - check 173.194.222.113 status=0
-Dec 15 19:49:58 - check 87.250.250.24 status=0
+Dec 15 20:27:00 - check - 192.168.0.1 - exite code: 0
+Dec 15 20:27:00 - check - 173.194.222.113 - exite code: 0
+Dec 15 20:27:01 - check - 87.250.250.24 - exite code: 1
+Dec 15 20:27:01 - check - 192.168.0.1 - exite code: 0
+Dec 15 20:27:01 - check - 173.194.222.113 - exite code: 0
+Dec 15 20:27:02 - check - 87.250.250.24 - exite code: 1
+Dec 15 20:27:02 - check - 192.168.0.1 - exite code: 0
+Dec 15 20:27:02 - check - 173.194.222.113 - exite code: 0
+Dec 15 20:27:03 - check - 87.250.250.24 - exite code: 1
+Dec 15 20:27:03 - check - 192.168.0.1 - exite code: 0
+Dec 15 20:27:03 - check - 173.194.222.113 - exite code: 0
+Dec 15 20:27:04 - check - 87.250.250.24 - exite code: 1
+Dec 15 20:27:04 - check - 192.168.0.1 - exite code: 0
+Dec 15 20:27:04 - check - 173.194.222.113 - exite code: 0
+Dec 15 20:27:05 - check - 87.250.250.24 - exite code: 1
 ```
 4. Необходимо дописать скрипт из предыдущего задания так, чтобы он выполнялся до тех пор, пока один из узлов не окажется недоступным. Если любой из узлов недоступен - IP этого узла пишется в файл error, скрипт прерывается
 
