@@ -1,0 +1,14 @@
+stages:
+  - deploy
+
+deploy-job:
+  stage: deploy
+  script:
+    - if [ "$CI_COMMIT_TAG" = "" ] ; then echo "Need add tag!";
+      else 
+        ssh -o StrictHostKeyChecking=no ubuntu@app.tundracode.ru sudo chown ubuntu /var/www/tundracode.ru -R;
+        scp -q -o StrictHostKeyChecking=no -r $CI_PROJECT_DIR/wp/* ubuntu@app.tundracode.ru:/var/www/tundracode.ru/;
+        ssh -o StrictHostKeyChecking=no ubuntu@app.tundracode.ru sudo chown www-data /var/www/tundracode.ru -R;
+      fi
+    - echo "The End"
+
