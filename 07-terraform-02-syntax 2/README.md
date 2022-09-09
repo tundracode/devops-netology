@@ -7,7 +7,7 @@
 - `Packer`
 
 2. Ссылку на репозиторий с исходной конфигурацией терраформа.
-[terraform](/terraform/main.tf)
+[terraform](https://github.com/tundracode/devops-netology/tree/main/07-terraform-02-syntax%202/terraform)
 ---
 
 
